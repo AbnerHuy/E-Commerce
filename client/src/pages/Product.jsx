@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import { mobile } from "../responsive";
+import { useEffect, useState } from "react";
 
 const Container = styled.div``;
 
@@ -114,7 +115,8 @@ const Button = styled.button`
   }
 `;
 
-const Product = () => {
+const Product = ({ vat, filters, sort }) => {
+  console.log();
   return (
     <Container>
       <Navbar />
