@@ -58,8 +58,8 @@ router.get("/find/:id", verifyTokenAndAdmin, async (req, res) => {
   }
 });
 
-// // GET ALL USER
-router.get("/", verifyTokenAndAdmin, async (req, res) => {
+// // GET ALL PRODUCT
+router.get("/", async (req, res) => {
   const qNew = req.query.new;
   const qCategory = req.query.category;
   try {

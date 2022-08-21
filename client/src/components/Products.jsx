@@ -15,40 +15,34 @@ const Products = ({ cat, filters, sort }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
 
-  // useEffect(() => {
-  //   const getProducts = async () => {
-  //     try {
-  //       const res = await axios.get(
-  //         cat
-  //           ? `http://localhost:5000/api/products?category=${cat}`
-  //           : "http://localhost:5000/api/products"
-  //       );
-  //       console.log("ok here", res);
-  //       setProducts(res.data);
-  //     } catch (err) {}
-  //   };
-  //   getProducts();
-  // }, [cat]);
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/products");
-        console.log(res);
+        const res = await axios.get(
+          cat
+            ? `http://localhost:5000/api/products?category=${cat}`
+            : "http://localhost:5000/api/products"
+        );
+        console.log("ok here", res);
+        setProducts(res.data);
       } catch (err) {}
     };
     getProducts();
   }, [cat]);
 
-  // useEffect(() => {
-  //   cat &&
-  //     setFilteredProducts(
-  //       products.filter((item) =>
-  //         Object.entries(filters).every(([key, value]) =>
-  //           item[key].includes(value)
-  //         )
-  //       )
-  //     );
-  // }, [products, cat, filters]);
+  useEffect(() => {
+    cat &&
+      setFilteredProducts(
+        products.filter((item) =>
+          Object.entries(filters).every(([key, value]) =>
+            item[key].includes(value)
+          )
+        )
+      );
+    console.log("ok here1", cat);
+    console.log("ok here2", products);
+    console.log("ok here3", filters);
+  }, [products, cat, filters]);
 
   // useEffect(() => {
   //   if (sort === "newest") {
@@ -69,7 +63,7 @@ const Products = ({ cat, filters, sort }) => {
   return (
     <Container>
       {cat
-        ? popularProducts.map((item) => <Product item={item} key={item.id} />)
+        ? filteredProducts.map((item) => <Product item={item} key={item.id} />)
         : products
             .slice(0, 8)
             .map((item) => <Product item={item} key={item.id} />)}

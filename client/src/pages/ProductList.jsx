@@ -67,9 +67,7 @@ function ProductList() {
             <Option>green</Option>
           </Select>
           <Select name="size" onChange={handleFilters}>
-            <Option disable selected>
-              Size
-            </Option>
+            <Option disable>Size</Option>
             <Option>XS</Option>
             <Option>S</Option>
             <Option>M</Option>
