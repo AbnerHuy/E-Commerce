@@ -28,10 +28,10 @@ const Container = styled.div`
   min-width: 280px;
   height: 350px;
   display: flex;
-  flex-direction: column;
+  flex-direction: wrap;
   align-items: center;
   justify-content: center;
-
+  margin-left: 5px;
   position: relative;
 
   &:hover ${Info} {
@@ -42,9 +42,7 @@ const Container = styled.div`
 const Image = styled.img`
   height: 100%;
   z-index: 2;
-  margin: 5px;
 `;
-const Title = styled.h3``;
 
 const Icon = styled.div`
   width: 40px;
