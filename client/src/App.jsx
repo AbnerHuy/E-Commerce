@@ -4,16 +4,19 @@ import ProductList from "./pages/ProductList";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
+import { useSelector } from "react-redux";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
 } from "react-router-dom";
-import { useSelector } from "react-redux";
+
+import Success from "./pages/Success";
 
 const App = () => {
-  const user = true;
+  // const user = useSelector((state) => state.user.currentUser);
+  const user = false;
   return (
     <Router>
       <Switch>
@@ -28,6 +31,9 @@ const App = () => {
         </Route>
         <Route path="/cart">
           <Cart />
+        </Route>
+        <Route path="/success">
+          <Success />
         </Route>
 
         <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>

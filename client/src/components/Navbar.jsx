@@ -2,7 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { Badge } from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
+import { useSelector } from "react-redux";
 import { mobile } from "../responsive";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   height: 60px;
@@ -69,35 +71,37 @@ const MenuItem = styled.div`
   margin-left: 25px;
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
-function navbar() {
+const Navbar = () => {
+  const quantity = useSelector((state) => state.cart.quantity);
+  console.log(quantity);
   return (
-    <div>
-      <Container>
-        <Wrapper>
-          <Left>
-            <Language>EN</Language>
-            <SearchContainer>
-              <Input placeholder="Search" />
-              <Search style={{ color: "gray", fontSize: 16 }} />
-            </SearchContainer>
-          </Left>
+    <Container>
+      <Wrapper>
+        <Left>
+          <Language>EN</Language>
+          <SearchContainer>
+            <Input placeholder="Search" />
+            <Search style={{ color: "gray", fontSize: 16 }} />
+          </SearchContainer>
+        </Left>
 
-          <Center>
-            <Logo>Abner.</Logo>
-          </Center>
-          <Right>
-            <MenuItem>REGISTER</MenuItem>
-            <MenuItem>SIGN IN</MenuItem>
-            <MenuItem>
-              <Badge badgeContent={10} color="primary">
+        <Center>
+          <Logo>Abner.</Logo>
+        </Center>
+        <Right>
+          <MenuItem>REGISTER</MenuItem>
+          <MenuItem>SIGN IN</MenuItem>
+          <MenuItem>
+            <Link to="/cart">
+              <Badge badgeContent={quantity} color="primary">
                 <ShoppingCartOutlined />
               </Badge>
-            </MenuItem>
-          </Right>
-        </Wrapper>
-      </Container>
-    </div>
+            </Link>
+          </MenuItem>
+        </Right>
+      </Wrapper>
+    </Container>
   );
-}
+};
 
-export default navbar;
+export default Navbar;

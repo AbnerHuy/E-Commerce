@@ -44,7 +44,7 @@ function ProductList() {
     const value = e.target.value;
     setFilters({
       ...filters,
-      [e.target.value]: value,
+      [e.target.name]: value,
     });
   };
   console.log(filters);
@@ -79,7 +79,7 @@ function ProductList() {
           <FilterText>Sort Product :</FilterText>
           <Select onChange={(e) => setSort(e.target.value)}>
             <Option value="newest">Newest</Option>
-            <Option value="price">Price (asc)</Option>
+            <Option value="asc">Price (asc)</Option>
             <Option value="desc">Price (desc)</Option>
           </Select>
         </Filter>
