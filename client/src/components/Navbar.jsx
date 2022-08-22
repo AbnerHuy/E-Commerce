@@ -26,7 +26,8 @@ const Left = styled.div`
 `;
 
 const Language = styled.span`
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
   ${mobile({ display: "none" })}
 `;
@@ -51,7 +52,10 @@ const Center = styled.div`
 
 const Logo = styled.h1`
   font-weight: bold;
-  ${mobile({ fontSize: "24px" })}
+  cursor: pointer;
+  color: black;
+  under-line: none;
+  ${mobile({ fontSize: "24px" })};
 `;
 
 const Right = styled.div`
@@ -66,9 +70,10 @@ const Right = styled.div`
 `;
 
 const MenuItem = styled.div`
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
   margin-left: 25px;
+  font-weigh: 500;
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 const Navbar = () => {
@@ -86,7 +91,9 @@ const Navbar = () => {
         </Left>
 
         <Center>
-          <Logo>Abner.</Logo>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <Logo>Abner.</Logo>
+          </Link>
         </Center>
         <Right>
           <MenuItem>REGISTER</MenuItem>

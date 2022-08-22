@@ -28,27 +28,23 @@ const Container = styled.div`
   min-width: 280px;
   height: 350px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #f5fbfd;
+
   position: relative;
+
   &:hover ${Info} {
     opacity: 1;
   }
 `;
 
-const Circle = styled.div`
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: white;
-  position: absolute;
-`;
-
 const Image = styled.img`
-  height: 75%;
+  height: 100%;
   z-index: 2;
+  margin: 5px;
 `;
+const Title = styled.h3``;
 
 const Icon = styled.div`
   width: 40px;
@@ -69,8 +65,8 @@ const Icon = styled.div`
 function Product({ item }) {
   return (
     <Container>
-      <Circle />
       <Image src={item.img} />
+
       <Info>
         <Icon>
           <ShoppingCartOutlined />

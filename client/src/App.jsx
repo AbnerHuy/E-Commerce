@@ -15,8 +15,8 @@ import {
 import Success from "./pages/Success";
 
 const App = () => {
-  // const user = useSelector((state) => state.user.currentUser);
-  const user = false;
+  const user = useSelector((state) => state.user.currentUser);
+
   return (
     <Router>
       <Switch>

@@ -15,7 +15,6 @@ import { useEffect, useState } from "react";
 import { userRequest } from "../requestMethod";
 import { Link } from "react-router-dom";
 
-const KEY = process.env.REACT_APP_STRIPE;
 const Container = styled.div``;
 
 const Wrapper = styled.div`
@@ -68,6 +67,7 @@ const Info = styled.div`
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
   ${mobile({ flexDirection: "column" })}
 `;
 
